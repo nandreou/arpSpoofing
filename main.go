@@ -14,6 +14,7 @@ import (
 	"github.com/google/gopacket/pcap"
 )
 
+// FILL THESE
 var (
 	VICTIM_MAC                     = net.HardwareAddr{0xff, 0xff, 0xff, 0xff, 0xff, 0xff}
 	GATEWAY_MAC                    = net.HardwareAddr{0xff, 0xff, 0xff, 0xff, 0xff, 0xff}
@@ -23,9 +24,12 @@ var (
 	FORWARD                        = flag.Bool("FORWARD", false, "Use This Flag In Order to Use Scripts Forwarder")
 	SPOOF_TIME_STEP  time.Duration = 50
 	SPOOF_ITERATIONS               = 10000
-	INTERFACE_NAME   string        = "<your ifnet name>"
-	sendMu           sync.Mutex
-	wg               sync.WaitGroup
+	INTERFACE_NAME   string        = "<your interface name>"
+)
+
+var (
+	sendMu sync.Mutex
+	wg     sync.WaitGroup
 )
 
 func main() {
