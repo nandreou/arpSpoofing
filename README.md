@@ -1,6 +1,6 @@
 # ARP SPOOF Tool in Go
 
-A Man-in-the-Middle (MITM) tool written in Go using raw packet manipulation via `gopacket`. Poisons ARP tables on both the victim and gateway, intercepting all traffic transparently.
+A Man-in-the-Middle (MITM) tool written in Go using raw packet manipulation with `gopacket`. Poisons ARP tables on both the victim and gateway, intercepting all traffic transparently.
 
 ---
 
@@ -34,9 +34,9 @@ sudo go run main.go
 
 ## Forwarder
 
-The tool supports two forwarding styles:
+The tool supports two forwarding modes:
 
-### Style 1 — OS Handles Forwarding
+### Mode 1 — OS Handles Forwarding
 
 Enable forwarding at the OS level and let the kernel do the work:
 
@@ -49,7 +49,7 @@ iptables -P FORWARD ACCEPT
 iptables -F FORWARD
 ```
 
-### Sytle 2 — Script Handles Forwarding
+### Mode 2 — Script Handles Forwarding
 
 If you don't want to touch OS settings, use the `-FORWARD` flag and the tool will handle packet forwarding itself via gopacket:
 
